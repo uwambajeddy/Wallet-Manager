@@ -10,19 +10,18 @@ import { addTransaction } from "@/lib/actions/transaction.actions";
 const TransactionForm = ({userId }: TransactionFormProps) => {
   const router = useRouter();
   const [formData, setFormData] = useState<TransactionParams>({
-    transactionId: data?.transactionId || "",
-    date: data?.date || "",
-    walletName1: data?.walletName1 || "",
-    wallet: data?.wallet || "",
-    amount: data?.amount || "",
-    givingType: data?.givingType || "",
-    comments: data?.comments || "",
-    crmStatus: data?.crmStatus || "",
-    walletName2: data?.walletName2 || "",
-    name: data?.name || "",
-    group: data?.group || "",
-    subgroup: data?.subgroup || "",
-    fellowship: data?.fellowship || "",
+    date: "",
+    walletName1:"",
+    wallet: "",
+    amount:  "",
+    givingType:"",
+    comments:  "",
+    crmStatus:  "",
+    walletName2:  "",
+    name: "",
+    group:  "",
+    subgroup: "",
+    fellowship:  "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
