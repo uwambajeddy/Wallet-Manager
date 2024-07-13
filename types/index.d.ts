@@ -22,6 +22,7 @@ declare type UpdateUserParams = {
 
 declare type TransactionParams = {
   transactionId?: string,
+  userId?: string,
   date: string,
   walletName1: string,
   wallet: string,
@@ -45,8 +46,9 @@ declare type TransactionFormProps = {
 
 declare type CustomFieldProps = {
   control: Control<TransactionParams>; // Specify the type here
-  render: (props: { field: any }) => React.ReactNode; // Adjust as necessary
+  render?: (props: { field: any }) => React.ReactNode; // Adjust as necessary
   name: keyof TransactionParams; // Ensure this matches the keys of TransactionParams
   formLabel?: string;
   className?: string;
+  placeholder?: string;
 };

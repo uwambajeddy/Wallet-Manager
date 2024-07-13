@@ -45,7 +45,7 @@ const TransactionForm = ({
     try {
       const newTransaction = await addTransaction({
         ...formData,
-        userId: userId,
+        userId,
       });
 
       if (newTransaction) {

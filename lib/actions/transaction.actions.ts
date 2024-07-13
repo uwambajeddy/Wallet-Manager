@@ -5,22 +5,8 @@ import { connectToDatabase } from "../database/mongoose";
 import { handleError } from "../utils";
 import Transaction from "../database/models/transaction.model";
 import { redirect } from "next/navigation";
+import { TransactionParams } from "@/types";
 
-declare type TransactionParams = {
-  transactionId?: string,
-  date: string,
-  walletName1: string,
-  wallet: string,
-  amount: string,
-  givingType: string,
-  comments: string,
-  crmStatus: string,
-  walletName2: string,
-  name: string,
-  group: string,
-  subgroup: string,
-  fellowship: string
-};
 
 // ADD DATA
 export async function addTransaction(newTransaction: TransactionParams) {
