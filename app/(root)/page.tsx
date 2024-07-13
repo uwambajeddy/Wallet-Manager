@@ -9,7 +9,8 @@ import Header from "@/components/shared/Header"
 const Transactions = async () => {
   const { userId } = auth();
   if(!userId) redirect('/sign-in')
-    let user = await getUserById(userId);
+  let user = await getUserById(userId);
+  if (!user) redirect("/");
   const transactions = await getAllTransaction({ userId: user?._id });
   
 

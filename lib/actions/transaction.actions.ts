@@ -12,7 +12,6 @@ import { TransactionParams } from "@/types";
 export async function addTransaction(newTransaction: TransactionParams) {
   try {
     await connectToDatabase();
-console.log(newTransaction)
     const createdTransaction = await Transaction.create(newTransaction)
 
     revalidatePath("/");
