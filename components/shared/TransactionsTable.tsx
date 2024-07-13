@@ -1,12 +1,13 @@
 "use client";
+import { TransactionDocument } from "@/lib/database/models/transaction.model";
 
 
 export const TransactionsTable = ({
   hasTitle = false,
-  trips,
+  transactions,
   userId,
 }: {
-  trips: TripDocument[];
+  transactions: TransactionDocument[];
   userId?: string;
   hasTitle?: boolean;
 }) => {
