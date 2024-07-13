@@ -1,4 +1,6 @@
 /* eslint-disable no-unused-vars */
+import { TransactionDocument } from "@/lib/database/models/trip.model";
+import { Control } from "react-hook-form";
 
 // ====== USER PARAMS
 declare type CreateUserParams = {
@@ -40,3 +42,11 @@ declare type TransactionFormProps = {
   data?: TransactionDocument | null;
 };
 
+
+declare type CustomFieldProps = {
+  control: Control<TransactionParams>; // Specify the type here
+  render: (props: { field: any }) => React.ReactNode; // Adjust as necessary
+  name: keyof TransactionParams; // Ensure this matches the keys of TransactionParams
+  formLabel?: string;
+  className?: string;
+};

@@ -1,4 +1,4 @@
-"use client"
+"use cli"
 import React, { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
