@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/alert-dialog";
 
 import { Button } from "../ui/button";
-import { deleteRequest } from "@/lib/actions/transaction.actions";
+import { deleteTransaction } from "@/lib/actions/transaction.actions";
 
 export const RequestCancellation = ({ requestId }: { requestId: string }) => {
   const [isPending, startTransition] = useTransition();
@@ -48,7 +48,7 @@ export const RequestCancellation = ({ requestId }: { requestId: string }) => {
             className="border bg-red-500 text-white hover:bg-red-600"
             onClick={() =>
               startTransition(async () => {
-                await deleteRequest(requestId);
+                await deleteTransaction(requestId);
               })
             }
           >
