@@ -7,10 +7,10 @@ import { redirect } from "next/navigation"
 import Header from "@/components/shared/Header"
 
 const Transactions = async () => {
-  // const { userId } = auth();
-  // if(!userId) redirect('/sign-in')
-  //   let user = await getUserById(userId);
-  // const transactions = await getAllTransaction({ userId: user?._id });
+  const { userId } = auth();
+  if(!userId) redirect('/sign-in')
+    let user = await getUserById(userId);
+  const transactions = await getAllTransaction({ userId: user?._id });
   
 
   return (
@@ -23,9 +23,9 @@ const Transactions = async () => {
 
     <section className="sm:mt-12">
       <TransactionsTable
-        // hasTitle={false}
-        // transactions={transactions?.data}
-        // userId={user._id}
+        hasTitle={false}
+        transactions={transactions?.data}
+        userId={user._id}
       />
     </section>
   </>

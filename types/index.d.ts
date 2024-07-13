@@ -38,9 +38,7 @@ declare type TransactionParams = {
 };
 
 declare type TransactionFormProps = {
-  action: "Add" | "Update";
   userId: string;
-  data?: TransactionDocument | null;
 };
 
 

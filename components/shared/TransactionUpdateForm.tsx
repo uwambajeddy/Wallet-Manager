@@ -1,28 +1,50 @@
 "use client";
-import React, { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { TransactionFormProps, TransactionParams } from "@/types";
-import { addTransaction } from "@/lib/actions/transaction.actions";
+import {  updateTransaction } from "@/lib/actions/transaction.actions";
 import "./styles.css";
 
 const TransactionForm = ({ userId }: TransactionFormProps) => {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [formData, setFormData] = useState<TransactionParams>({
     date: "",
-    walletName1:  "",
-    wallet:"",
+    walletName1: "",
+    wallet: "",
     amount: "",
-    givingType:  "",
-    comments:  "",
-    crmStatus:"",
+    givingType: "",
+    comments: "",
+    crmStatus: "",
     walletName2: "",
     name: "",
-    group:  "",
-    subgroup:  "",
+    group: "",
+    subgroup: "",
     fellowship: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  useEffect(() => {
+    const transactionId = searchParams.get("transactionId");
+    if (transactionId) {
+      const params: TransactionParams = {
+        date: searchParams.get("date") || "",
+        walletName1: searchParams.get("walletName1") || "",
+        wallet: searchParams.get("wallet") || "",
+        amount: searchParams.get("amount") || "",
+        givingType: searchParams.get("givingType") || "",
+        comments: searchParams.get("comments") || "",
+        crmStatus: searchParams.get("crmStatus") || "",
+        walletName2: searchParams.get("walletName2") || "",
+        name: searchParams.get("name") || "",
+        group: searchParams.get("group") || "",
+        subgroup: searchParams.get("subgroup") || "",
+        fellowship: searchParams.get("fellowship") || "",
+      };
+      setFormData(params);
+    }
+  }, [searchParams]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -48,28 +70,14 @@ const TransactionForm = ({ userId }: TransactionFormProps) => {
     }
     setIsSubmitting(true);
     try {
-      const newTransaction = await addTransaction({
-        ...formData,
-        userId,
-      });
-      if (newTransaction) {
-        setFormData({
-          transactionId: "",
-          date: "",
-          walletName1: "",
-          wallet: "",
-          amount: "",
-          givingType: "",
-          comments: "",
-          crmStatus: "",
-          walletName2: "",
-          name: "",
-          group: "",
-          subgroup: "",
-          fellowship: "",
+        const updatedTransaction = await updateTransaction({
+          ...formData,
+          transactionId: searchParams.get("transactionId")|| "",
         });
-        router.push("/");
-      }
+        if (updatedTransaction) {
+          router.push("/");
+        }
+      
     } catch (error) {
       console.error("Error submitting transaction:", error);
     } finally {

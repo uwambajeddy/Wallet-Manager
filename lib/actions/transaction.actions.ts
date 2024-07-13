@@ -12,10 +12,10 @@ import { TransactionParams } from "@/types";
 export async function addTransaction(newTransaction: TransactionParams) {
   try {
     await connectToDatabase();
-
+console.log(newTransaction)
     const createdTransaction = await Transaction.create(newTransaction)
 
-    revalidatePath("/transactions");
+    revalidatePath("/");
 
     return JSON.parse(JSON.stringify(createdTransaction));
   } catch (error) {
@@ -35,7 +35,7 @@ export async function updateTransaction(transactionData: TransactionParams) {
       { new: true }
     )
 
-    revalidatePath("/transactions");
+    revalidatePath("/");
 
     return JSON.parse(JSON.stringify(updatedTransaction));
   } catch (error) {
@@ -50,7 +50,7 @@ export async function getAllTransaction({userId }: {
   try {
     await connectToDatabase();
     
-    const transactions = await Transaction.find({ userId });
+    const transactions = await Transaction.find({userId});
 
   
     return {
@@ -72,6 +72,6 @@ export async function deleteTransaction(transactionId: string) {
   } catch (error) {
     handleError(error)
   } finally{
-    redirect('/transactions')
+    revalidatePath("/");
   }
 }

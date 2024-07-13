@@ -15,6 +15,17 @@ export const navLinks = [
 
 
 export const defaultValues = {
-    startPoint: "",
-    endPoint: "",
+  transactionId: "",
+  date: "",
+  walletName1: "",
+  wallet: "",
+  amount: "",
+  givingType: "",
+  comments: "",
+  crmStatus: "",
+  walletName2: "",
+  name: "",
+  group: "",
+  subgroup: "",
+  fellowship: "",
 };
