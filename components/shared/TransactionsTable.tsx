@@ -1,14 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { TripDocument } from "@/lib/database/models/trip.model";
-import { Button } from "../ui/button";
-import { Key, useEffect, useState } from "react";
-import { RequestModal } from "./RequestModal";
-import { requestTrip, tripAction } from "@/lib/actions/transaction.actions";
-import { TripCancellation } from "./TripCancellation";
-import { RequestConfirmationModal } from "./RequestConfirmationModal";
-import { socket } from "@/lib/utils";
 
 export const TransactionsTable = ({
   hasTitle = false,
@@ -68,7 +59,7 @@ export const TransactionsTable = ({
                     </div>
                 </td>
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    Apple MacBook Pro 17"
+                    Apple MacBook Pro 17
                 </th>
                 <td className="px-6 py-4">
                     Silver

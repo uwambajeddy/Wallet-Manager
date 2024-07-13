@@ -21,7 +21,7 @@ const Layout = async ({ children }: { children: React.ReactNode }) => {
       <MobileNav />
 
       <div className="root-container">
-        <div className="wrapper">
+        <div className="mx-10">
           {children}
         </div>
       </div>
