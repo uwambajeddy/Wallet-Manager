@@ -80,6 +80,11 @@ Follow these steps to set up the project on your local machine:
   
   
 ## Screenshot
+
+o. **Authentication:**
+![image](https://github.com/user-attachments/assets/95dc5e30-2121-4da7-9a5b-deb4ae831219)
+
+
 1. **Dashboard:**
    ![image](https://github.com/user-attachments/assets/50eec83d-12a3-40cc-a750-30ec568ad671)
 
