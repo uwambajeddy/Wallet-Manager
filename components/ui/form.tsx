@@ -7,7 +7,7 @@ import {
 } from "@/types";
 import { addTransaction } from "@/lib/actions/transaction.actions";
 
-const TransactionForm = ({ action, data, userId }: TransactionFormProps) => {
+const TransactionForm = ({userId }: TransactionFormProps) => {
   const router = useRouter();
   const [formData, setFormData] = useState<TransactionParams>({
     transactionId: data?.transactionId || "",
