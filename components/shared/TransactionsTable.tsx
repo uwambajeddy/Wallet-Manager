@@ -2,15 +2,7 @@
 import { TransactionDocument } from "@/lib/database/models/transaction.model";
 
 
-export const TransactionsTable = ({
-  hasTitle = false,
-  transactions,
-  userId,
-}: {
-  transactions: TransactionDocument[];
-  userId?: string;
-  hasTitle?: boolean;
-}) => {
+export const TransactionsTable = () => {
   return (
     <>
      
