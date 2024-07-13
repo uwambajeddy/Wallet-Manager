@@ -41,17 +41,6 @@
  margin-top: 5px;
 }
 
-.submit-button {
- width: 100%;
- padding: 15px;
- background: linear-gradient(90deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
- color: white;
- border: none;
- border-radius: 25px;
- font-size: 1.25em;
- cursor: pointer;
- transition: background 0.3s;
-}
 
 .submit-button:hover {
  background: linear-gradient(90deg, rgba(252,70,107,1) 0%, rgba(63,94,251,1) 100%);
