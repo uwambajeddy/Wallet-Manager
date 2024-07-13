@@ -30,7 +30,7 @@ export async function updateTransaction(transactionData: TransactionParams) {
     await connectToDatabase();
 
     const updatedTransaction = await Transaction.findByIdAndUpdate(
-      transactionData.dataId,
+      transactionData.transactionId,
       transactionData,
       { new: true }
     )
