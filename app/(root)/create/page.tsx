@@ -21,7 +21,6 @@ const CreateTrip = async () => {
     
       <section className="mt-10">
         <TransactionForm 
-          action="Add"
           userId={user._id}
         />
       </section>
